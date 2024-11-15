@@ -1,3 +1,36 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const btnGet1 = document.getElementById('btnGet1');
+    const inputGet1Id = document.getElementById('inputGet1Id');
+
+    const btnPost = document.getElementById('btnPost');
+    const inputPostNombre = document.getElementById('inputPostNombre');
+    const inputPostApellido = document.getElementById('inputPostApellido');
+
+    const btnPut = document.getElementById('btnPut');
+    const inputPutId = document.getElementById('inputPutId');
+
+    const btnDelete = document.getElementById('btnDelete');
+    const inputDelete = document.getElementById('inputDelete');
+
+    // Función para verificar y habilitar/deshabilitar botones
+    function verificarCampos() {
+        btnGet1.disabled = inputGet1Id.value.trim() === '';
+        btnPost.disabled = inputPostNombre.value.trim() === '' || inputPostApellido.value.trim() === '';
+        btnPut.disabled = inputPutId.value.trim() === '';
+        btnDelete.disabled = inputDelete.value.trim() === '';
+    }
+
+    // Agregar eventos de input para verificar cambios en tiempo real
+    inputGet1Id.addEventListener('input', verificarCampos);
+    inputPostNombre.addEventListener('input', verificarCampos);
+    inputPostApellido.addEventListener('input', verificarCampos);
+    inputPutId.addEventListener('input', verificarCampos);
+    inputDelete.addEventListener('input', verificarCampos);
+
+    // Inicializar botones deshabilitados al cargar la página
+    verificarCampos();
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const btnGet1 = document.getElementById('btnGet1');
@@ -227,5 +260,6 @@ btnPut.addEventListener('click', async function() {
     listarUsuarios();
 
 });
+
 
 
